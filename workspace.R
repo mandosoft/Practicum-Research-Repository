@@ -3,6 +3,8 @@ library(jsonlite)
 library(lubridate)
 library(quantmod)
 library(alphavantager)
+library(ggplot2)
+library(corrplot)
 
 #Removes strings as factors 
 options(stringsAsFactors = FALSE)
@@ -13,9 +15,19 @@ av_api_key("PCRN5TC83BHHF76D")
 
 #time series data pull example
 
-MSFT <- av_get(symbol = "MSFT", av_fun = "TIME_SERIES_INTRADAY", interval = "15min")
+SPX <- av_get(symbol = "SPX", av_fun = "TIME_SERIES_INTRADAY", interval = "15min")
+RUT <- av_get(symbol = "RUT", av_fun = "TIME_SERIES_INTRADAY", interval = "15min")
+VIX <- av_get(symbol = "VIX", av_fun = "TIME_SERIES_INTRADAY", interval = "15min")
 
-plot(MSFT)
-View(MSFT)
+corrplot(VIX) 
+
+
+
+
+
+
+
+
+
 
 
